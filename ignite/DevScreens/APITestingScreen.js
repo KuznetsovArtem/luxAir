@@ -9,13 +9,14 @@ import FJSON from 'format-json'
 
 // Styles
 import styles from './Styles/APITestingScreenStyles'
+import btnStyles from './Styles/ButtonBoxStyles'
+import presStyles from './Styles/PresentationScreenStyles'
 
 // API buttons here:
 const endpoints = [
-  { label: 'Github Root', endpoint: 'getRoot' },
-  { label: 'Github Rate Limit', endpoint: 'getRate' },
-  { label: 'Search User (gantman)', endpoint: 'getUser', args: ['gantman'] },
-  { label: 'Search User (skellock)', endpoint: 'getUser', args: ['skellock'] }
+  { label: 'Explore your location', endpoint: 'getRoot' },
+  { label: 'Special deals and discounts', endpoint: 'getRate' },
+  { label: 'Inflight shopping', endpoint: 'getUser', args: ['gantman'] }
 ]
 
 export default class APITestingScreen extends React.Component {
@@ -71,21 +72,23 @@ export default class APITestingScreen extends React.Component {
         </TouchableOpacity>
         <ScrollView style={styles.container} ref='container'>
           <View style={{alignItems: 'center', paddingTop: 60}}>
-            <Image source={Images.api} style={styles.logo} />
-            <Text style={styles.titleText}>API</Text>
+            <Image source={Images.api} style={btnStyles.image} />
+            <Text style={styles.titleText}>OUR PROPOSALS</Text>
           </View>
           <View style={styles.section}>
             <Text style={styles.sectionText}>
-              Testing API with Postman or APIary.io verifies the server works.
-              The API Test screen is the next step; a simple in-app way to verify and debug your in-app API functions.
+              Explore your location by visiting interesting places, tasting local food or attending city events. See our guide for more details
             </Text>
             <Text style={styles.sectionText}>
-              Create new endpoints in Services/Api.js then add example uses to endpoints array in Containers/APITestingScreen.js
+              Our partners prepared special deals for you: Book hotels, rent car or order taxi and more with up to 30% discount!
             </Text>
           </View>
           {this.renderButtons()}
           <APIResult ref='result' />
         </ScrollView>
+        <View style={presStyles.banner}>
+          <Text style={presStyles.bannerLabel}>Powered by © 2017 Luxoft</Text>
+        </View>
       </View>
     )
   }

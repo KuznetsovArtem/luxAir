@@ -9,9 +9,11 @@ import ComponentExamplesScreen from './ComponentExamplesScreen'
 import DeviceInfoScreen from './DeviceInfoScreen'
 import PluginExamplesScreen from './PluginExamplesScreen'
 import ThemeScreen from './ThemeScreen'
+import Map from '../Examples/Components/MapsExample'
 import FaqScreen from './FaqScreen'
 
 // Styles
+import apiStyles from './Styles/APITestingScreenStyles'
 import styles from './Styles/PresentationScreenStyles'
 
 class PresentationScreen extends React.Component {
@@ -31,8 +33,8 @@ class PresentationScreen extends React.Component {
     this.props.navigation.navigate('ThemeScreen')
   }
 
-  openDevice = () => {
-    this.props.navigation.navigate('DeviceInfoScreen')
+  openMap = () => {
+    this.props.navigation.navigate('MapExample')
   }
 
   openFaq = () => {
@@ -43,38 +45,42 @@ class PresentationScreen extends React.Component {
     return (
       <View style={styles.mainContainer}>
         <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
-        <TouchableOpacity onPress={this.props.screenProps.toggle} style={{
+        {/*<TouchableOpacity onPress={this.props.screenProps.toggle} style={{
           position: 'absolute',
           paddingTop: 30,
           paddingHorizontal: 10,
           zIndex: 10
         }}>
           <Image source={Images.closeButton} />
-        </TouchableOpacity>
+        </TouchableOpacity>*/}
         <ScrollView showsVerticalScrollIndicator={false} bounces={false} style={styles.container}>
-          <View style={styles.centered}>
+          {/*<View style={styles.centered}>
             <Image source={Images.igniteClear} style={styles.logo} />
-          </View>
+          </View>*/}
+          {/*<View style={{alignItems: 'center'}}>
+            <Text style={styles.titleText}>WELCOME ON BOARD!</Text>
+            <Text style={styles.titleText}>Please, </Text>
+          </View>*/}
 
-          <Text style={styles.sectionText}>
+          {/*<Text style={styles.sectionText}>
             Default screens for development, debugging, and alpha testing
             are available below.
-          </Text>
-          <View style={styles.buttonsContainer}>
-            <ButtonBox onPress={this.openComponents} style={styles.componentButton} image={Images.components} text='Components' />
-            <ButtonBox onPress={this.openUsage} style={styles.usageButton} image={Images.usageExamples} text='Plugin Examples' />
+          </Text>*/}
+          <View style={[styles.buttonsContainer, {backgroundColor: 'white'}]}>
+            <ButtonBox onPress={this.openComponents} style={styles.componentButton} image={Images.components} text='My flights' />
+            <ButtonBox onPress={this.openUsage} style={styles.usageButton} image={Images.usageExamples} text='Flight info' />
           </View>
           <View style={styles.buttonsContainer}>
-            <ButtonBox onPress={this.openApi} style={styles.apiButton} image={Images.api} text='API Testing' />
-            <ButtonBox onPress={this.openTheme} image={Images.theme} text='Theme' />
+            <ButtonBox onPress={this.openApi} style={styles.apiButton} image={Images.api} text='Our proposals' />
+            <ButtonBox onPress={this.openTheme} image={Images.theme} text='Profile' />
           </View>
           <View style={styles.buttonsContainer}>
-            <ButtonBox onPress={this.openDevice} style={styles.deviceButton} image={Images.deviceInfo} text='Device Info' />
+            <ButtonBox onPress={this.openMap} style={styles.deviceButton} image={Images.deviceInfo} text='Map' />
             <ButtonBox onPress={this.openFaq} style={styles.usageButton} image={Images.faq} text='FAQ' />
           </View>
         </ScrollView>
         <View style={styles.banner}>
-          <Text style={styles.bannerLabel}>Made with ❤️ by Infinite Red</Text>
+          <Text style={styles.bannerLabel}>Powered by © 2017 Luxoft</Text>
         </View>
       </View>
     )
@@ -88,6 +94,7 @@ export default StackNavigator({
   DeviceInfoScreen: {screen: DeviceInfoScreen},
   PluginExamplesScreen: {screen: PluginExamplesScreen},
   ThemeScreen: {screen: ThemeScreen},
+	MapExample: {screen: Map},
   FaqScreen: {screen: FaqScreen}
 }, {
   cardStyle: {

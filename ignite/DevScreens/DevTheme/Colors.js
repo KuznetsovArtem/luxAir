@@ -9,9 +9,10 @@ const colors = {
   snow: 'white',
   ember: 'rgba(164, 0, 48, 0.5)',
   fire: '#ff3832',
-  eggplant: '#251a34',
+  eggplant: 'white',
   border: '#483F53',
-  text: '#E0D7E5'
+  text: 'rgb(39,59,104)',
+  banner: 'rgb(31, 60, 119)'
 }
 
 export default colors
